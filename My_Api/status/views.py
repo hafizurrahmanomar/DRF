@@ -6,7 +6,7 @@ from .serializers import StatusSerializer  # Serializers based on status/model
 
 #from rest_framework import generics, mixins
 
-from rest_framework import generics
+from rest_framework import generics,parsers
 
 # Create your views here.
 
@@ -68,7 +68,8 @@ from rest_framework import generics
 class StatusListCreateAPIView(generics.ListCreateAPIView):
     queryset = Status.objects.all()
     serializer_class = StatusSerializer
-    lookup_field = "id"
+    parser_classes =[parsers.FormParser,parsers.MultiPartParser]
+
 
 # GET, PUT, PATCH, DELETE,
 class StatusRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
