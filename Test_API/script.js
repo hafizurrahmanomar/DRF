@@ -4,7 +4,7 @@ document.getElementById("image").addEventListener("change", handelImage);
 let myImage = null;
 
 function handelImage(e) {
-  myImage = e.target.files[0];
+  myImage = e.target.files;
   //   console.log(myImage);
 }
 
@@ -20,14 +20,13 @@ function handelSubmit(e) {
   //   for (var [key, value] of form_data.entries()) {
   //     console.log(key, ":", value);
   //   }
-
   axios
-    .post("http://127.0.0.1:8000/apiV1/status/create/", form_data, {
+    .post("http://127.0.0.1:8000/apiV1/status/", form_data, {
       headers: {
-        "Content-Type": "multipart/form_data",
+        "Content-Type": "multipart/form-data",
       },
     })
-    .than((reponsoe) => console.log(reponsoe));
+    .then(response => console.log(response));
 }
 
 //Before axios used must install=>  python -m pip install django-cors-headers

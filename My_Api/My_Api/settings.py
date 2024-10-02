@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'status',
     # For API Testing if nedded
     "corsheaders",
+    # delet data cleanup the backend=>apps.CleanupConfig'=>(optional)
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
